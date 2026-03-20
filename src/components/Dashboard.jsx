@@ -11,39 +11,31 @@ const Dashboard = () => {
   const { language } = useLanguage();
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section className="dashboard-section">
+      <div className="container dashboard-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="dashboard-header"
         >
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="dashboard-title">
             {getTranslation(language, 'dashboard.title')}
           </h2>
         </motion.div>
 
         {/* View Type Selector */}
-        <div className="flex justify-center gap-4 mb-8">
+        <div className="dashboard-view-toggle">
           <button
             onClick={() => setViewType('student')}
-            className={`px-6 py-3 rounded-lg flex items-center gap-2 transition-all ${
-              viewType === 'student'
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300'
-            }`}
+            className={`dashboard-toggle-btn ${viewType === 'student' ? 'active' : ''}`}
           >
             <FaUser />
             {getTranslation(language, 'dashboard.student')}
           </button>
           <button
             onClick={() => setViewType('faculty')}
-            className={`px-6 py-3 rounded-lg flex items-center gap-2 transition-all ${
-              viewType === 'faculty'
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300'
-            }`}
+            className={`dashboard-toggle-btn ${viewType === 'faculty' ? 'active' : ''}`}
           >
             <FaChalkboardTeacher />
             {getTranslation(language, 'dashboard.faculty')}
@@ -58,25 +50,25 @@ const Dashboard = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8"
+              className="dashboard-login-card"
             >
-              <h3 className="text-2xl font-bold text-center mb-6 dark:text-white">
+              <h3 className="dashboard-login-title">
                 {getTranslation(language, 'dashboard.loginPrompt')}
               </h3>
-              <div className="space-y-4">
+              <div className="dashboard-login-fields">
                 <input
                   type="text"
                   placeholder="Username"
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                  className="dashboard-input"
                 />
                 <input
                   type="password"
                   placeholder="Password"
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                  className="dashboard-input"
                 />
                 <button
                   onClick={() => setIsLoggedIn(true)}
-                  className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                  className="dashboard-login-btn"
                 >
                   {getTranslation(language, 'dashboard.login')}
                 </button>
@@ -90,10 +82,10 @@ const Dashboard = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               {viewType === 'student' ? <StudentDashboard /> : <FacultyDashboard />}
-              <div className="text-center mt-8">
+              <div className="dashboard-logout-wrap">
                 <button
                   onClick={() => setIsLoggedIn(false)}
-                  className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                  className="dashboard-logout-btn"
                 >
                   {getTranslation(language, 'dashboard.logout')}
                 </button>
@@ -110,7 +102,7 @@ const StudentDashboard = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="dashboard-grid">
       <DashboardCard
         icon={<FaBook />}
         title={getTranslation(language, 'dashboard.courses')}
@@ -134,7 +126,7 @@ const FacultyDashboard = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="dashboard-grid">
       <DashboardCard
         icon={<FaClock />}
         title={getTranslation(language, 'dashboard.schedule')}
@@ -158,16 +150,16 @@ const DashboardCard = ({ icon, title, items }) => {
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg"
+      className="dashboard-card"
     >
-      <div className="flex items-center gap-3 mb-4">
-        <div className="text-2xl text-blue-600">{icon}</div>
-        <h3 className="text-xl font-bold dark:text-white">{title}</h3>
+      <div className="dashboard-card-head">
+        <div className="dashboard-card-icon">{icon}</div>
+        <h3 className="dashboard-card-title">{title}</h3>
       </div>
-      <ul className="space-y-2">
+      <ul className="dashboard-card-list">
         {items.map((item, idx) => (
-          <li key={idx} className="text-gray-600 dark:text-gray-300 text-sm flex items-start gap-2">
-            <span className="text-blue-600 mt-1">•</span>
+          <li key={idx} className="dashboard-card-list-item">
+            <span className="dashboard-dot">•</span>
             <span>{item}</span>
           </li>
         ))}

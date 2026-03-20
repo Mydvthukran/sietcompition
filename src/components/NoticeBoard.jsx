@@ -15,21 +15,21 @@ const NoticeBoard = () => {
     : notices.filter(n => n.category === filter);
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section className="notice-section">
+      <div className="container notice-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="notice-header"
         >
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="notice-title">
             {getTranslation(language, 'notices.title')}
           </h2>
         </motion.div>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center gap-3 mb-8 flex-wrap">
+        <div className="notice-filters">
           <FilterButton
             active={filter === 'all'}
             onClick={() => setFilter('all')}
@@ -53,16 +53,16 @@ const NoticeBoard = () => {
         </div>
 
         {/* Notices Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="notice-grid">
           {filteredNotices.map((notice, idx) => (
             <NoticeCard key={notice.id} notice={notice} index={idx} />
           ))}
         </div>
 
         {/* Scrolling Ticker */}
-        <div className="mt-12 bg-blue-600 text-white py-3 overflow-hidden">
+        <div className="notice-ticker-wrap">
           <motion.div
-            className="whitespace-nowrap"
+            className="notice-ticker"
             animate={{ x: [0, -1000] }}
             transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           >
@@ -82,11 +82,7 @@ const NoticeBoard = () => {
 const FilterButton = ({ active, onClick, label }) => (
   <button
     onClick={onClick}
-    className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-all ${
-      active
-        ? 'bg-blue-600 text-white shadow-lg'
-        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-    }`}
+    className={`notice-filter-btn ${active ? 'active' : ''}`}
   >
     <FaFilter size={12} />
     {label}
@@ -108,27 +104,27 @@ const NoticeCard = ({ notice, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative overflow-hidden"
+      className="notice-card"
     >
       {notice.urgent && (
-        <div className="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+        <div className="notice-urgent">
           {getTranslation(language, 'notices.urgent')}
         </div>
       )}
-      <div className="flex items-start gap-3 mb-3">
-        <FaBell className="text-blue-600 text-xl flex-shrink-0 mt-1" />
+      <div className="notice-body">
+        <FaBell className="notice-icon" />
         <div>
-          <h3 className="font-bold text-lg text-gray-800 dark:text-white mb-2">
+          <h3 className="notice-card-title">
             {notice.title[language]}
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm">
+          <p className="notice-card-text">
             {notice.description[language]}
           </p>
         </div>
       </div>
-      <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-        <span className="text-xs text-gray-500 dark:text-gray-400">{notice.date}</span>
-        <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full">
+      <div className="notice-meta">
+        <span className="notice-date">{notice.date}</span>
+        <span className="notice-category">
           {notice.category}
         </span>
       </div>
