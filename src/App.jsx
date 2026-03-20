@@ -10,6 +10,7 @@ import ProgramsSection from './components/ProgramsSection';
 import FacilitiesSection from './components/FacilitiesSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import Chatbot from './components/Chatbot';
 
 function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,6 +33,7 @@ function AppContent() {
       <FacilitiesSection />
       <ContactSection />
       <Footer />
+      <Chatbot />
     </div>
   );
 }
