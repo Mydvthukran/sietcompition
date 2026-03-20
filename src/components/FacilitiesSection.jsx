@@ -1,49 +1,48 @@
+import { useLanguage } from '../contexts/useLanguage';
+import { getTranslation } from '../data/translations';
+
 function FacilitiesSection() {
+  const { language } = useLanguage();
+
   return (
     <section id="facilities" className="facilities">
       <div className="container">
-        <h2 className="section-title">World-Class Facilities</h2>
+        <h2 className="section-title">{getTranslation(language, 'facilities.title')}</h2>
         <div className="facilities-grid">
           <div className="facility-card">
-            <h3>Advanced Laboratories</h3>
+            <h3>🔬 {getTranslation(language, 'facilities.labs.title')}</h3>
             <p>
-              State-of-the-art labs equipped with modern instruments and software
-              for practical learning and research.
+              {getTranslation(language, 'facilities.labs.desc')}
             </p>
           </div>
           <div className="facility-card">
-            <h3> Rich Library</h3>
+            <h3>📚 {getTranslation(language, 'facilities.library.title')}</h3>
             <p>
-              Extensive collection of books, journals, and digital resources
-              to support academic excellence.
+              {getTranslation(language, 'facilities.library.desc')}
             </p>
           </div>
           <div className="facility-card">
-            <h3> Sports Complex</h3>
+            <h3>🏋️ {getTranslation(language, 'facilities.sports.title')}</h3>
             <p>
-              Indoor and outdoor sports facilities promoting physical fitness
-              and overall personality development.
+              {getTranslation(language, 'facilities.sports.desc')}
             </p>
           </div>
           <div className="facility-card">
-            <h3> Hostel Accommodation</h3>
+            <h3>🏠 {getTranslation(language, 'facilities.hostel.title')}</h3>
             <p>
-              Separate hostel facilities for boys and girls with all modern
-              amenities in a secure environment.
+              {getTranslation(language, 'facilities.hostel.desc')}
             </p>
           </div>
           <div className="facility-card">
-            <h3>Transportation</h3>
+            <h3>🚌 {getTranslation(language, 'facilities.transport.title')}</h3>
             <p>
-              Well-maintained bus fleet covering various routes for safe and
-              convenient commute.
+              {getTranslation(language, 'facilities.transport.desc')}
             </p>
           </div>
           <div className="facility-card">
-            <h3> Placement Cell</h3>
+            <h3>💼 {getTranslation(language, 'facilities.placement.title')}</h3>
             <p>
-              Dedicated placement cell ensuring career guidance and opportunities
-              with top companies.
+              {getTranslation(language, 'facilities.placement.desc')}
             </p>
           </div>
         </div>

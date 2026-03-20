@@ -1,6 +1,10 @@
 import instituteLogo from '../assets/siet.webp';
+import { useLanguage } from '../contexts/useLanguage';
+import { getTranslation } from '../data/translations';
 
 function Header({ isMenuOpen, onToggleMenu }) {
+  const { language } = useLanguage();
+
   return (
     <header className="header">
       <div className="container header-content">
@@ -8,12 +12,12 @@ function Header({ isMenuOpen, onToggleMenu }) {
           <img src={instituteLogo} alt="SIET Logo" className="logo" />
           <div className="institute-name">
             <h1 className="name-english">
-              State Institute of Engineering & Technology
+              {getTranslation(language, 'instituteName')}
             </h1>
             <h2 className="name-hindi">
-              राज्य अभियांत्रिकी एवं प्रौद्योगिकी संस्थान
+              {language === 'en' ? 'राज्य अभियांत्रिकी एवं प्रौद्योगिकी संस्थान' : 'State Institute of Engineering & Technology'}
             </h2>
-            <p className="tagline">Panchkula, Haryana</p>
+            <p className="tagline">{getTranslation(language, 'tagline')}</p>
           </div>
         </div>
         <button

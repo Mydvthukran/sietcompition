@@ -1,41 +1,46 @@
+import { useLanguage } from '../contexts/useLanguage';
+import { getTranslation } from '../data/translations';
+
 function ProgramsSection() {
+  const { language } = useLanguage();
+
   return (
     <section id="programs" className="programs">
       <div className="container">
-        <h2 className="section-title">Our Programs</h2>
+        <h2 className="section-title">{getTranslation(language, 'programs.title')}</h2>
         <p className="section-subtitle">
-          We offer B.Tech programs in various engineering disciplines
+          {getTranslation(language, 'programs.subtitle')}
         </p>
         <div className="programs-grid">
           <div className="program-card">
             <div className="program-icon">💻</div>
-            <h3>Computer Science & Engineering</h3>
-            <p>Focus on software development, AI, and data science</p>
+            <h3>{getTranslation(language, 'programs.cse.title')}</h3>
+            <p>{getTranslation(language, 'programs.cse.desc')}</p>
           </div>
           <div className="program-card">
             <div className="program-icon">⚡</div>
-            <h3>Electronics & Communication</h3>
-            <p>Specializing in VLSI, embedded systems, and telecommunications</p>
+            <h3>{getTranslation(language, 'programs.ece.title')}</h3>
+            <p>{getTranslation(language, 'programs.ece.desc')}</p>
           </div>
           <div className="program-card">
             <div className="program-icon">⚙️</div>
-            <h3>Mechanical Engineering</h3>
-            <p>Covering design, manufacturing, and thermal systems</p>
+            <h3>{getTranslation(language, 'programs.me.title')}</h3>
+            <p>{getTranslation(language, 'programs.me.desc')}</p>
           </div>
           <div className="program-card">
             <div className="program-icon">🔌</div>
-            <h3>Electrical Engineering</h3>
-            <p>Power systems, control systems, and renewable energy</p>
+            <h3>{getTranslation(language, 'programs.ee.title')}</h3>
+            <p>{getTranslation(language, 'programs.ee.desc')}</p>
           </div>
           <div className="program-card">
             <div className="program-icon">🏗️</div>
-            <h3>Civil Engineering</h3>
-            <p>Infrastructure development and construction management</p>
+            <h3>{getTranslation(language, 'programs.ce.title')}</h3>
+            <p>{getTranslation(language, 'programs.ce.desc')}</p>
           </div>
           <div className="program-card">
             <div className="program-icon">📡</div>
-            <h3>Information Technology</h3>
-            <p>Web technologies, cloud computing, and cybersecurity</p>
+            <h3>{getTranslation(language, 'programs.it.title')}</h3>
+            <p>{getTranslation(language, 'programs.it.desc')}</p>
           </div>
         </div>
       </div>

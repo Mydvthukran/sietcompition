@@ -1,32 +1,37 @@
+import { useLanguage } from '../contexts/useLanguage';
+import { getTranslation } from '../data/translations';
+
 function Footer() {
+  const { language } = useLanguage();
+
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>SIET Panchkula</h3>
-            <p className="footer-hindi">राज्य अभियांत्रिकी एवं प्रौद्योगिकी संस्थान, पंचकुला</p>
-            <p>Excellence in Engineering Education</p>
+            <h3>{getTranslation(language, 'instituteNameShort')}</h3>
+            <p className="footer-hindi">{getTranslation(language, 'instituteName')}</p>
+            <p>{getTranslation(language, 'footer.tagline')}</p>
           </div>
           <div className="footer-section">
-            <h4>Quick Links</h4>
+            <h4>{getTranslation(language, 'footer.quickLinks')}</h4>
             <ul>
               <li>
-                <a href="#home">Home</a>
+                <a href="#home">{getTranslation(language, 'nav.home')}</a>
               </li>
               <li>
-                <a href="#about">About</a>
+                <a href="#about">{getTranslation(language, 'nav.about')}</a>
               </li>
               <li>
-                <a href="#programs">Programs</a>
+                <a href="#programs">{getTranslation(language, 'nav.programs')}</a>
               </li>
               <li>
-                <a href="#facilities">Facilities</a>
+                <a href="#facilities">{getTranslation(language, 'nav.facilities')}</a>
               </li>
             </ul>
           </div>
           <div className="footer-section">
-            <h4>Contact</h4>
+            <h4>{getTranslation(language, 'footer.contactTitle')}</h4>
             <p>Sector 26, Panchkula</p>
             <p>Haryana - 134108</p>
             <p>Phone: +91-123-456789</p>
@@ -34,7 +39,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 SIET Panchkula. All rights reserved.</p>
+          <p>{getTranslation(language, 'footer.copyright')}</p>
         </div>
       </div>
     </footer>

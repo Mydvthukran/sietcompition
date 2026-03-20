@@ -1,31 +1,51 @@
+import { useLanguage } from '../contexts/useLanguage';
+import { getTranslation } from '../data/translations';
+
 function Navigation({ isMenuOpen, onCloseMenu }) {
+  const { language } = useLanguage();
+
   return (
     <nav className={`navigation ${isMenuOpen ? 'open' : ''}`}>
       <div className="container">
         <ul className="nav-links">
           <li>
             <a href="#home" onClick={onCloseMenu}>
-              Home
+              {getTranslation(language, 'nav.home')}
             </a>
           </li>
           <li>
             <a href="#about" onClick={onCloseMenu}>
-              About
+              {getTranslation(language, 'nav.about')}
             </a>
           </li>
           <li>
             <a href="#programs" onClick={onCloseMenu}>
-              Programs
+              {getTranslation(language, 'nav.programs')}
             </a>
           </li>
           <li>
             <a href="#facilities" onClick={onCloseMenu}>
-              Facilities
+              {getTranslation(language, 'nav.facilities')}
+            </a>
+          </li>
+          <li>
+            <a href="#notices" onClick={onCloseMenu}>
+              {getTranslation(language, 'nav.notices')}
+            </a>
+          </li>
+          <li>
+            <a href="#dashboard" onClick={onCloseMenu}>
+              {getTranslation(language, 'nav.dashboard')}
+            </a>
+          </li>
+          <li>
+            <a href="#gallery" onClick={onCloseMenu}>
+              {getTranslation(language, 'nav.gallery')}
             </a>
           </li>
           <li>
             <a href="#contact" onClick={onCloseMenu}>
-              Contact
+              {getTranslation(language, 'nav.contact')}
             </a>
           </li>
         </ul>

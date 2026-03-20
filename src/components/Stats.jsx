@@ -1,12 +1,70 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar, Pie } from 'react-chartjs-2';
 import { useAnimatedCounter } from '../hooks/useAnimations';
 import { statsData } from '../data/content';
 import { useLanguage } from '../contexts/useLanguage';
 import { getTranslation } from '../data/translations';
 
+ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip, Legend);
+
 const Stats = () => {
   const { language } = useLanguage();
+
+  const barData = {
+    labels: ['CSE', 'ECE', 'ME', 'EE', 'CE', 'IT'],
+    datasets: [
+      {
+        label: language === 'en' ? 'Department Strength' : 'विभागीय क्षमता',
+        data: [420, 310, 250, 270, 230, 290],
+        backgroundColor: ['#0ea5a0', '#3b82f6', '#f97316', '#8b5cf6', '#14b8a6', '#f43f5e'],
+        borderRadius: 8,
+      },
+    ],
+  };
+
+  const pieData = {
+    labels: ['Placed', 'Higher Studies', 'Entrepreneurship'],
+    datasets: [
+      {
+        data: [68, 22, 10],
+        backgroundColor: ['#10b981', '#3b82f6', '#f59e0b'],
+        borderWidth: 2,
+        borderColor: '#ffffff',
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          color: '#ffffff',
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: { color: '#ffffff' },
+        grid: { color: 'rgba(255,255,255,0.15)' },
+      },
+      y: {
+        ticks: { color: '#ffffff' },
+        grid: { color: 'rgba(255,255,255,0.15)' },
+      },
+    },
+  };
 
   return (
     <section className="py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
@@ -50,6 +108,34 @@ const Stats = () => {
             label={getTranslation(language, 'stats.alumni')}
             suffix="+"
           />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/10 backdrop-blur-sm rounded-xl p-5"
+          >
+            <Bar data={barData} options={chartOptions} />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/10 backdrop-blur-sm rounded-xl p-5"
+          >
+            <Pie data={pieData} options={{
+              responsive: true,
+              plugins: {
+                legend: {
+                  labels: {
+                    color: '#ffffff',
+                  },
+                },
+              },
+            }} />
+          </motion.div>
         </div>
       </div>
     </section>
