@@ -1,6 +1,6 @@
 export const translations = {
   en: {
-    instituteName: 'Shaheed Ishwar Singh Institute of Engineering & Technology',
+    instituteName: 'State Institute of Engineering & Technology',
     instituteNameShort: 'SIET Panchkula',
     tagline: 'Panchkula, Haryana',
     nav: {
@@ -87,7 +87,7 @@ export const translations = {
     contact: {
       title: 'Contact Us',
       address: 'Address',
-      addressText: 'Shaheed Ishwar Singh Institute of Engineering & Technology, Sector 28, Panchkula, Haryana - 134108',
+      addressText: 'State Institute of Engineering & Technology, Sector 26, Panchkula, Haryana - 134108',
       phone: 'Phone',
       email: 'Email',
       website: 'Website',
@@ -159,7 +159,7 @@ export const translations = {
     },
   },
   hi: {
-    instituteName: 'शहीद ईश्वर सिंह इंजीनियरिंग एंड टेक्नोलॉजी संस्थान',
+    instituteName: 'राज्य अभियांत्रिकी एवं प्रौद्योगिकी संस्थान',
     instituteNameShort: 'एसआईईटी पंचकूला',
     tagline: 'पंचकूला, हरियाणा',
     nav: {
@@ -181,7 +181,7 @@ export const translations = {
     },
     about: {
       title: 'एसआईईटी के बारे में',
-      description1: 'शहीद ईश्वर सिंह इंजीनियरिंग एंड टेक्नोलॉजी संस्थान (एसआईईटी) पंचकूला, हरियाणा में स्थित एक प्रमुख इंजीनियरिंग संस्थान है। 2008 में स्थापित, हम गुणवत्तापूर्ण तकनीकी शिक्षा प्रदान करने और नवाचार को बढ़ावा देने के लिए प्रतिबद्ध हैं।',
+      description1: 'राज्य अभियांत्रिकी एवं प्रौद्योगिकी संस्थान (एसआईईटी) पंचकूला, हरियाणा में स्थित एक प्रमुख इंजीनियरिंग संस्थान है। 2008 में स्थापित, हम गुणवत्तापूर्ण तकनीकी शिक्षा प्रदान करने और नवाचार को बढ़ावा देने के लिए प्रतिबद्ध हैं।',
       description2: 'हमारा संस्थान कुरुक्षेत्र विश्वविद्यालय से संबद्ध है और एआईसीटीई (अखिल भारतीय तकनीकी शिक्षा परिषद) द्वारा अनुमोदित है। हम अत्याधुनिक सुविधाओं और अनुभवी शिक्षकों के साथ विभिन्न इंजीनियरिंग विषयों में स्नातक कार्यक्रम प्रदान करते हैं।',
       yearsLabel: 'वर्षों की उत्कृष्टता',
       facultyLabel: 'अनुभवी शिक्षक',
@@ -246,7 +246,7 @@ export const translations = {
     contact: {
       title: 'संपर्क करें',
       address: 'पता',
-      addressText: 'शहीद ईश्वर सिंह इंजीनियरिंग एंड टेक्नोलॉजी संस्थान, सेक्टर 28, पंचकूला, हरियाणा - 134108',
+      addressText: 'राज्य अभियांत्रिकी एवं प्रौद्योगिकी संस्थान, सेक्टर 26, पंचकूला, हरियाणा - 134108',
       phone: 'फोन',
       email: 'ईमेल',
       website: 'वेबसाइट',

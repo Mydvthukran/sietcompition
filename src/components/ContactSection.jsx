@@ -41,8 +41,8 @@ function ContactSection() {
             </div>
             <div className="contact-item">
               <iframe
-                title="SIET Panchkula Map"
-                src="https://www.google.com/maps?q=Sector%2028%20Panchkula&output=embed"
+                title="State Institute of Engineering and Technology Map"
+                src="https://www.google.com/maps?q=Sector%2026%20Panchkula&output=embed"
                 width="100%"
                 height="220"
                 style={{ border: 0, borderRadius: '12px' }}

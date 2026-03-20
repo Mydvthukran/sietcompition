@@ -45,8 +45,8 @@ export const chatbotKnowledge = {
   location: {
     keywords: ['location', 'address', 'reach', 'directions', 'स्थान', 'पता', 'दिशा'],
     responses: {
-      en: 'SIET is located in Sector 28, Panchkula, Haryana - 134108. It is easily accessible from Chandigarh (15 km), Mohali, and nearby areas. We provide bus transportation from various routes.',
-      hi: 'एसआईईटी सेक्टर 28, पंचकूला, हरियाणा - 134108 में स्थित है। यह चंडीगढ़ (15 किमी), मोहाली और आसपास के क्षेत्रों से आसानी से पहुंचा जा सकता है। हम विभिन्न मार्गों से बस परिवहन प्रदान करते हैं।'
+      en: 'SIET is located in Sector 26, Panchkula, Haryana - 134108. It is easily accessible from Chandigarh (15 km), Mohali, and nearby areas. We provide bus transportation from various routes.',
+      hi: 'एसआईईटी सेक्टर 26, पंचकूला, हरियाणा - 134108 में स्थित है। यह चंडीगढ़ (15 किमी), मोहाली और आसपास के क्षेत्रों से आसानी से पहुंचा जा सकता है। हम विभिन्न मार्गों से बस परिवहन प्रदान करते हैं।'
     }
   },
   default: {

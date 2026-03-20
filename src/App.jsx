@@ -42,7 +42,7 @@ function AppContent() {
       <Navigation isMenuOpen={isMenuOpen} onCloseMenu={closeMenu} />
       <HeroSection />
       <Suspense fallback={<LoadingFallback />}>
-        <SearchBar />
+       
       </Suspense>
       <AboutSection />
       <Suspense fallback={<LoadingFallback />}>
