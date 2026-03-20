@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSearch } from 'react-icons/fa';
-import { useLanguage } from '../contexts/LanguageContext';
-import { getTranslation } from '../data/translations';
 import PropTypes from 'prop-types';
+import { useLanguage } from '../contexts/useLanguage';
+import { getTranslation } from '../data/translations';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');

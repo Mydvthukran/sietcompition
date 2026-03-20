@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaBell, FaFilter } from 'react-icons/fa';
-import { useLanguage } from '../contexts/LanguageContext';
+import PropTypes from 'prop-types';
+import { useLanguage } from '../contexts/useLanguage';
 import { notices } from '../data/content';
 import { getTranslation } from '../data/translations';
-import PropTypes from 'prop-types';
 
 const NoticeBoard = () => {
   const [filter, setFilter] = useState('all');

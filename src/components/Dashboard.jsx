@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBook, FaClock, FaBell, FaUser, FaChalkboardTeacher } from 'react-icons/fa';
-import { useLanguage } from '../contexts/LanguageContext';
+import PropTypes from 'prop-types';
+import { useLanguage } from '../contexts/useLanguage';
 import { getTranslation } from '../data/translations';
 
 const Dashboard = () => {
