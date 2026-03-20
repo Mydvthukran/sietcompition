@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
-import { useLanguage } from '../contexts/LanguageContext';
+import PropTypes from 'prop-types';
+import { useLanguage } from '../contexts/useLanguage';
 import { getChatbotResponse } from '../data/chatbot';
 import { getTranslation } from '../data/translations';
-import PropTypes from 'prop-types';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);

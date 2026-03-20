@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 import { useAnimatedCounter } from '../hooks/useAnimations';
 import { statsData } from '../data/content';
-import { useLanguage } from '../contexts/LanguageContext';
+import { useLanguage } from '../contexts/useLanguage';
 import { getTranslation } from '../data/translations';
-import PropTypes from 'prop-types';
 
 const Stats = () => {
   const { language } = useLanguage();
