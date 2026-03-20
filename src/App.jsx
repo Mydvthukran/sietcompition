@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import './App.css';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
@@ -9,7 +11,7 @@ import FacilitiesSection from './components/FacilitiesSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
-function App() {
+function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -31,6 +33,17 @@ function App() {
       <ContactSection />
       <Footer />
     </div>
+  );
+}
+
+// Main App wrapper with providers
+function App() {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 
