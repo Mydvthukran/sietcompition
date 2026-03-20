@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { FaMoon, FaSun, FaTextHeight, FaAdjust, FaGlobe } from 'react-icons/fa';
-import { useTheme } from '../contexts/ThemeContext';
-import { useLanguage } from '../contexts/LanguageContext';
+import { FaMoon, FaSun, FaAdjust, FaGlobe } from 'react-icons/fa';
+import { useTheme } from '../contexts/useTheme';
+import { useLanguage } from '../contexts/useLanguage';
 import { getTranslation } from '../data/translations';
 
 const AccessibilityPanel = () => {
