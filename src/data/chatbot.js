@@ -57,20 +57,41 @@ export const chatbotKnowledge = {
   }
 };
 
-export const getChatbotResponse = (message, language = 'en') => {
+export const getChatbotResponseWithMeta = (message, language = 'en') => {
   const lowerMessage = message.toLowerCase();
+  let bestMatch = null;
 
   for (const [category, data] of Object.entries(chatbotKnowledge)) {
     if (category === 'default') continue;
 
-    const hasKeyword = data.keywords.some(keyword =>
+    const matchedKeywords = data.keywords.filter((keyword) =>
       lowerMessage.includes(keyword.toLowerCase())
     );
 
-    if (hasKeyword) {
-      return data.responses[language];
+    if (matchedKeywords.length === 0) continue;
+
+    const confidence = Math.min(1, matchedKeywords.length / 2);
+
+    if (!bestMatch || confidence > bestMatch.confidence) {
+      bestMatch = {
+        category,
+        confidence,
+        response: data.responses[language],
+      };
     }
   }
 
-  return chatbotKnowledge.default.responses[language];
+  if (bestMatch) {
+    return bestMatch;
+  }
+
+  return {
+    category: 'default',
+    confidence: 0.2,
+    response: chatbotKnowledge.default.responses[language],
+  };
+};
+
+export const getChatbotResponse = (message, language = 'en') => {
+  return getChatbotResponseWithMeta(message, language).response;
 };

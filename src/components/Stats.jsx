@@ -67,55 +67,62 @@ const Stats = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white relative overflow-hidden">
+    <section className="stats-section">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
+      <div className="stats-bg-pattern" aria-hidden="true">
+        <div className="stats-bg-grid" style={{
           backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
           backgroundSize: '50px 50px'
         }}></div>
       </div>
+      <div className="stats-glow stats-glow-a" aria-hidden="true"></div>
+      <div className="stats-glow stats-glow-b" aria-hidden="true"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container stats-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="stats-heading"
         >
-          <h2 className="text-4xl font-bold mb-4">Our Achievements</h2>
-          <p className="text-xl opacity-90">Numbers that speak for excellence</p>
+          <h2 className="stats-title">Our Achievements</h2>
+          <p className="stats-subtitle">Numbers that speak for excellence</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="stats-card-grid">
           <StatCard
             value={statsData.students}
             label={getTranslation(language, 'stats.students')}
             suffix="+"
+            index={0}
           />
           <StatCard
             value={statsData.placementRate}
             label={getTranslation(language, 'stats.placements')}
             suffix="%"
+            index={1}
           />
           <StatCard
             value={statsData.companies}
             label={getTranslation(language, 'stats.companies')}
             suffix="+"
+            index={2}
           />
           <StatCard
             value={statsData.alumni}
             label={getTranslation(language, 'stats.alumni')}
             suffix="+"
+            index={3}
           />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
+        <div className="stats-chart-grid">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-5"
+            transition={{ delay: 0.15 }}
+            className="stats-chart-card"
           >
             <Bar data={barData} options={chartOptions} />
           </motion.div>
@@ -123,7 +130,8 @@ const Stats = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-5"
+            transition={{ delay: 0.25 }}
+            className="stats-chart-card"
           >
             <Pie data={pieData} options={{
               responsive: true,
@@ -142,7 +150,7 @@ const Stats = () => {
   );
 };
 
-const StatCard = ({ value, label, suffix = '' }) => {
+const StatCard = ({ value, label, suffix = '', index = 0 }) => {
   const [count, ref] = useAnimatedCounter(value, 2000);
 
   return (
@@ -151,13 +159,14 @@ const StatCard = ({ value, label, suffix = '' }) => {
       initial={{ opacity: 0, scale: 0.5 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
-      className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl"
+      whileHover={{ scale: 1.05, y: -6 }}
+      transition={{ delay: index * 0.08, type: 'spring', stiffness: 180, damping: 14 }}
+      className="stats-card"
     >
-      <div className="text-5xl font-bold mb-2">
+      <div className="stats-card-value">
         {count}{suffix}
       </div>
-      <div className="text-lg opacity-90">{label}</div>
+      <div className="stats-card-label">{label}</div>
     </motion.div>
   );
 };
@@ -166,6 +175,7 @@ StatCard.propTypes = {
   value: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
   suffix: PropTypes.string,
+  index: PropTypes.number,
 };
 
 export default Stats;

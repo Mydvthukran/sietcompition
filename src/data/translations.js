@@ -150,6 +150,9 @@ export const translations = {
       placeholder: 'Type your question...',
       send: 'Send',
       greeting: 'Hello! How can I help you today?',
+      clear: 'Clear',
+      listening: 'Listening...',
+      connectAdmin: 'Connect to Admin',
     },
     accessibility: {
       darkMode: 'Dark Mode',
@@ -309,6 +312,9 @@ export const translations = {
       placeholder: 'अपना सवाल टाइप करें...',
       send: 'भेजें',
       greeting: 'नमस्ते! मैं आज आपकी कैसे मदद कर सकता हूं?',
+      clear: 'साफ करें',
+      listening: 'सुन रहा हूं...',
+      connectAdmin: 'एडमिन से संपर्क करें',
     },
     accessibility: {
       darkMode: 'डार्क मोड',
